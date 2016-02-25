@@ -124,6 +124,7 @@ cat <<EOF >"$BUILD_DIR/start_nginx"
 rm -f /app/nginx/nginx.conf
 erb /app/nginx.conf.erb > /app/nginx/nginx.conf
 cat /app/nginx/nginx.conf
-exec nginx -p /app/nginx -c /app/nginx/nginx.conf
+nginx -t -p /app/nginx/ -c /app/nginx/nginx.conf
+exec nginx -p /app/nginx/ -c /app/nginx/nginx.conf
 EOF
 chmod +x "$BUILD_DIR/start_nginx"
